@@ -4,6 +4,7 @@
   "description": "Universal PNG File Reader.  Uses read-pixels in the Browser and pngjs in NodeJS",
   "main": "dist/node/index.js",
   "browser": "dist/browser/read-png.browser.js",
+  "unpkg": "dist/browser/read-png.browser.js",
   "scripts": {
     "build": "npm run clean && npm run build:browser && npm run build:node",
     "build:browser": "rimraf ./dist/browser && mkdirp ./dist/browser && cat ./node_modules/read-pixels/src/read-pixels.js ./src/read-png.browser.js | terser -c -m -o ./dist/browser/read-png.browser.js --source-map",
