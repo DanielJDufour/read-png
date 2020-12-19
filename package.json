@@ -1,6 +1,6 @@
 {
   "name": "read-png",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Universal PNG File Reader.  Uses read-pixels in the Browser and pngjs in NodeJS",
   "main": "dist/node/index.js",
   "browser": "dist/browser/read-png.browser.js",
