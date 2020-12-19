@@ -1,0 +1,46 @@
+{
+  "name": "read-png",
+  "version": "0.0.0",
+  "description": "Universal PNG File Reader. Uses Native Functions in the Browser and pngjs in NodeJS",
+  "main": "dist/node/index.js",
+  "browser": "dist/browser/read-png.browser.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:browser && npm run build:node",
+    "build:browser": "rimraf ./dist/browser && mkdirp ./dist/browser && cat ./node_modules/read-pixels/src/read-pixels.js ./src/read-png.browser.js | terser -c -m -o ./dist/browser/read-png.browser.js --source-map",
+    "build:node": "rimraf ./dist/node && mkdirp ./dist/node && cpy './src/index.js' './src/read-png.node.js' './dist/node/' && cat ./node_modules/read-pixels/src/read-pixels.js ./src/read-png.browser.js > ./dist/node/read-png.browser.js",
+    "clean": "rimraf ./dist",
+    "test": "ava --verbose",
+    "test:browser": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielJDufour/read-png.git"
+  },
+  "keywords": [
+    "cross",
+    "image",
+    "isomorphic",
+    "png",
+    "reader"
+  ],
+  "author": "Daniel J. Dufour",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/DanielJDufour/read-png/issues"
+  },
+  "homepage": "https://github.com/DanielJDufour/read-png#readme",
+  "devDependencies": {
+    "ava": "^3.14.0",
+    "browserify": "^17.0.0",
+    "cpy-cli": "^3.1.1",
+    "http-server": "^0.12.3",
+    "mkdirp": "^1.0.4",
+    "pngjs": "^6.0.0",
+    "rimraf": "^3.0.2",
+    "terser": "^5.5.1",
+    "toab": "^2.2.0"
+  },
+  "dependencies": {
+    "read-pixels": "^0.2.1"
+  }
+}
