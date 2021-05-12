@@ -10,7 +10,7 @@ npm install read-png
 ```js
 import readPNG from 'read-png';
 
-const result = readPNG({ data: arrayBuffer });
+const result = await readPNG({ data: arrayBuffer });
 // result is { height: 200, width: 100, pixels: [[[]]] }
 ```
 
@@ -18,5 +18,5 @@ const result = readPNG({ data: arrayBuffer });
 ```js
 const readPNG = require("read-png");
 
-const result = readPNG({ data: buffer });
+const result = await readPNG({ data: buffer });
 ```
